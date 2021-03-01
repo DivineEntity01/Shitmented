@@ -30,15 +30,6 @@ if not game.workspace:WaitForChild('KfcAndWatermelon', 1) then
     kfc.Position = Vector3.new(-227.376862, 0.791749, 171.235703)
     kfc.Size = Vector3.new(5, 1, 5)
 end
-if game:GetService("Workspace"):WaitForChild('Buildings', 1) then
-for _,v in pairs(game:GetService("Workspace").Buildings.KFCPlace:GetChildren()) do
-    if v:IsA("BasePart") then
-    if v.Size == Vector3.new(3.6, 20.5, 53.3)  then
-        v.CanCollide = false
-    end
-    end
-end
-end
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-227.376862, 4.791749, 171.235703)
 local cock = game.ReplicatedStorage.CookingRemote
 cock.OnClientEvent:Connect(function(femboy, ...)
