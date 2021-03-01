@@ -1,6 +1,6 @@
 local HttpService = game:GetService("HttpService");
 local SaveFileName = "Shitmented.pp"
-local Configuration = {HideBind = 'Enum.KeyCode.RightAlt'}
+local Configuration = {HideBind = 'Enum.KeyCode.RightAlt', PanicBind = ''}
 if not pcall(function()
     readfile(SaveFileName)
     end) then
@@ -13,8 +13,8 @@ end
 repeat wait()
 until game:IsLoaded()
 
-
-
+local UIS = game:GetService("UserInputService")
+getgenv().Walkspeed = game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed
 if game:GetService('CoreGui'):WaitForChild('Shitmented', 0.08) then
 wait()
 elseif not game:GetService('CoreGui'):WaitForChild('Shitmented', 0.08) then
@@ -25,6 +25,10 @@ CreateTab("Scripts")
 CreateTab("Settings")
 end
 
+local function IsShiftKeyDown()
+	return UIS:IsKeyDown(Enum.KeyCode.LeftShift)
+end
+
 function onInputBegan(input,gameProcessed)
 if input.UserInputType == Enum.UserInputType.Keyboard and Setting.HideBind:lower()==tostring(input.KeyCode):lower() and not gameProcessed and game:GetService('CoreGui'):WaitForChild('Shitmented', 0.08) then
     if game:GetService('CoreGui'):WaitForChild('Shitmented', 0.08).Top.Visible == false then 
@@ -33,7 +37,32 @@ if input.UserInputType == Enum.UserInputType.Keyboard and Setting.HideBind:lower
         game:GetService('CoreGui'):WaitForChild('Shitmented', 0.08).Top.Visible = false 
 end
 end
+
+if input.UserInputType == Enum.UserInputType.Keyboard and Setting.PanicBind:lower()==tostring(input.KeyCode):lower() and not gameProcessed and game:GetService('CoreGui'):WaitForChild('Shitmented', 0.08) then
+    if not getgenv().Panic then 
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-226.137573, 4, -83.1992569)
+        getgenv().Panic = true
+    else
+        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-247.874359, 4, -82.8432465)
+        getgenv().Panic = false
+    end
 end
+
+if input.UserInputType == Enum.UserInputType.Keyboard and Enum.KeyCode.LeftShift and not gameProcessed and game:GetService('CoreGui'):WaitForChild('Shitmented', 0.08) and getgenv().InfiniteRun then
+    if not IsShiftKeyDown() then
+        game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = 16
+    else
+    local function WalkSpeedChange()
+if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid and IsShiftKeyDown() then
+game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = 28
+end
+end
+    game:GetService("Players").LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(WalkSpeedChange)
+end
+end
+
+end
+
 game:GetService("UserInputService").InputBegan:connect(onInputBegan)
 
 
@@ -99,6 +128,15 @@ CreateToggle(tabs['Scripts'], "No CombatLog", "Doesn't ensure you won't get logg
     end
 end)
 
+
+
+CreateToggle(tabs['Scripts'], "Infinite Run", "Sets your walkspeed to look like you are running :troll:",function()
+    if not getgenv().InfiniteRun then
+        getgenv().InfiniteRun = true
+    else
+        getgenv().InfiniteRun = false   
+    end
+end)
 --[[
 
 
@@ -106,3 +144,54 @@ end)
 
 
 ]]
+
+
+CreateTextBox(tabs['Settings'], "Panic Bind", "Click to set",function()
+end)
+CreateTextBox(tabs['Settings'], "GUI Bind", "Click to set",function()
+end)
+
+local PanicBindBox = game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["Panic Bind"].Side.Box
+PanicBindBox.Text = string.sub(Setting.PanicBind, 14)
+PanicBindBox.Focused:Connect(function()
+    game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["Panic Bind"].Text = " Press a key"
+	PanicBindBox.TextEditable = false
+	local Enabled = true
+	wait(0.03)
+    UIS.InputBegan:Connect(function(Input , GPE)
+    if Enabled == false then
+        return
+    end
+    Setting.PanicBind = tostring(Input.KeyCode)
+    SaveSettings()
+    PanicBindBox.Text = string.sub(tostring(Input.KeyCode), 14)
+    wait()
+    Enabled = false
+    PanicBindBox:ReleaseFocus()
+    end)
+end)
+PanicBindBox.FocusLost:Connect(function()
+    game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["Panic Bind"].Text = " Panic Bind"
+end)
+local GuiToggleBox = game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["GUI Bind"].Side.Box
+GuiToggleBox.Text = string.sub(Setting.HideBind, 14)
+GuiToggleBox.Focused:Connect(function()
+    game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["GUI Bind"].Text = " Press a key"
+	GuiToggleBox.TextEditable = false
+	local Enabled = true
+	wait(0.03)
+    UIS.InputBegan:Connect(function(Input , GPE)
+    if Enabled == false then
+        return
+    end
+    Setting.HideBind = tostring(Input.KeyCode)
+    SaveSettings()
+    GuiToggleBox.Text = string.sub(tostring(Input.KeyCode), 14)
+    wait()
+    Enabled = false
+    GuiToggleBox:ReleaseFocus()
+    end)
+end)
+GuiToggleBox.FocusLost:Connect(function()
+    game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["GUI Bind"].Text = " GUI Bind"
+end)
