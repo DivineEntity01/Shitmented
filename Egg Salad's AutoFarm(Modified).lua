@@ -33,7 +33,7 @@ end
 if game:GetService("Workspace"):WaitForChild('Buildings', 1) then
 for _,v in pairs(game:GetService("Workspace").Buildings.KFCPlace:GetChildren()) do
     if v:IsA("BasePart") then
-    if v.Position == Vector3.new(-208.05, 11.25, 172.9)  then
+    if v.Size == Vector3.new(3.6, 20.5, 53.3)  then
         v.CanCollide = false
     end
     end
