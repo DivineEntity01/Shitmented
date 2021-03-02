@@ -27,10 +27,10 @@ if not game.workspace:WaitForChild('KfcAndWatermelon', 1) then
     kfc.Anchored = true
     kfc.Parent = workspace
     kfc.Name = 'KfcAndWatermelon'
-    kfc.Position = Vector3.new(-227.376862, 0.791749, 171.235703)
+    kfc.Position = Vector3.new(-230.136002, -5.29420757, 168.928955)
     kfc.Size = Vector3.new(5, 1, 5)
 end
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-229.507889, 4.291749, 171.333969)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-230.136002, -1.29420757, 168.928955)
 local cock = game.ReplicatedStorage.CookingRemote
 cock.OnClientEvent:Connect(function(femboy, ...)
     local eggs = {...}
