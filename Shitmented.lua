@@ -1,3 +1,5 @@
+
+--Kfc and watermelon
 local HttpService = game:GetService("HttpService");
 local SaveFileName = "Shitmented.pp"
 local Configuration = {HideBind = 'Enum.KeyCode.RightAlt', PanicBind = ''}
@@ -14,6 +16,9 @@ repeat wait()
 until game:IsLoaded()
 
 local UIS = game:GetService("UserInputService")
+local player = game.Players.LocalPlayer
+local gun = player.Character:FindFirstChildOfClass("Tool")
+local event = game:GetService("ReplicatedStorage")["Gun.Assets"]["Gun.Event"]
 getgenv().Walkspeed = game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed
 if game:GetService('CoreGui'):WaitForChild('Shitmented', 0.08) then
 wait()
@@ -47,7 +52,7 @@ if input.UserInputType == Enum.UserInputType.Keyboard and Setting.PanicBind:lowe
         getgenv().Panic = false
     end
 end
-
+--[[
 if input.UserInputType == Enum.UserInputType.Keyboard and Enum.KeyCode.LeftShift and not gameProcessed and game:GetService('CoreGui'):WaitForChild('Shitmented', 0.08) and getgenv().InfiniteRun then
     if not IsShiftKeyDown() then
         game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = 16
@@ -60,6 +65,7 @@ end
     game:GetService("Players").LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(WalkSpeedChange)
 end
 end
+]]--
 
 end
 
@@ -73,8 +79,24 @@ game:GetService("UserInputService").InputBegan:connect(onInputBegan)
 
 
 ]]
-CreateButton(tabs['Scripts'], "Farm Cash", "Executes a modified version of Egg Salad's",function()
+CreateToggle(tabs['Scripts'], "Farm Cash", "Executes a modified version of Egg Salad's",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/DivineEntity01/Shitmented/main/Egg%20Salad's%20AutoFarm(Modified).lua", true))()
+    if not getgenv().ChickenFarm then
+    getgenv().ChickenFarm = true
+    local function NoclipLoop()
+		if getgenv().ChickenFarm then
+			for _, child in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+				if child:IsA("BasePart") and child.CanCollide == true then
+					child.CanCollide = false
+				end
+			end
+		end
+    end
+    game:GetService('RunService').Stepped:Connect(NoclipLoop)
+    else
+    getgenv().ChickenFarm = false
+    Noclipping:Disconnect()  
+    end
 end)
 
 CreateButton(tabs['Scripts'], "GameSense", "Loads GameSense with my custom settings",function()
@@ -98,13 +120,6 @@ game:GetService("Workspace").Props.StreetLamps.StreetLamps.Part.Size = Vector3.n
 game:GetService("Workspace").Props.StreetLamps.StreetLamps.Part.Position = Vector3.new(game:GetService("Workspace").Props.TrashDecal4.Position)
 game:GetService("Workspace").Buildings:Destroy()
 game:GetService("Workspace").YourStuff:Destroy()
-
-local function onCharacterAdded(character)
-	if character.Name == game.Players.LocalPlayer then
-	    wait(1)
-	    character.HumanoidRootPart.CFrame = CFrame.new(game:GetService("Workspace").Props.TrashDecal4.Position)
-    end
-end
 end
 end)
 
@@ -129,15 +144,56 @@ CreateToggle(tabs['Scripts'], "No CombatLog", "Doesn't ensure you won't get logg
 end)
 
 
-
-CreateToggle(tabs['Scripts'], "Infinite Run", "Sets your walkspeed to look like you are running :troll:",function()
+--[[ CONTAINED CAUSE THIS SHIT IS LAGGY AS FUCK
+CreateToggle(tabs['Scripts'], "Infinite Run", "Infinite sprint, but i would recommend using Always Sprint...",function()
     if not getgenv().InfiniteRun then
         getgenv().InfiniteRun = true
     else
         getgenv().InfiniteRun = false   
     end
 end)
+]]--
+
+CreateToggle(tabs['Scripts'], "Always Sprint", "Infinite sprint, but i would recommend using Always Sprint...",function()
+    if not getgenv().AlwaysSprint then
+        getgenv().AlwaysSprint = true
+        while getgenv().AlwaysSprint do
+        if not getgenv().AlwaysSprint then
+            break
+        end
+        local function WalkSpeedChange()
+        if game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character.Humanoid and getgenv().AlwaysSprint then
+        game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = 32
+        end
+        end
+        game:GetService("Players").LocalPlayer.Character.Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(WalkSpeedChange)
+        wait(20)
+        end
+    else
+        getgenv().AlwaysSprint = false   
+    end
+end)
+
+CreateToggle(tabs['Scripts'], "Kill Aura", "Kinda works, shoot to someone close and you'll kill him/them",function()
+    if not getgenv().KillAll then
+    getgenv().KillAll = true
+    while getgenv().KillAll do
+    local players = game.Players:GetPlayers()
+    for i = 2, #players do local v = players[i]
+        if v.Character and v.Character:FindFirstChild("Head") and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health > 0 and not v.Character:FindFirstChild("ForceField") then
+            event:FireServer("HitTarget", gun, v.Character.Head, v.Character.Head.Position+Vector3.new(0,5,0), v.Character.Head.position)
+        end
+    end
+    wait(.1)
+    event:FireServer("Reload", gun, 1e17, 1e17)
+end
+        else
+            getgenv().KillAll = false
+    end
+end)
+
 --[[
+
 
 
         Settings
@@ -151,6 +207,33 @@ end)
 CreateTextBox(tabs['Settings'], "GUI Bind", "Click to set",function()
 end)
 
+CreateToggle(tabs['Settings'], "Restaurant Music", "Removes chinese music from nigga restaurant",function()
+    if not getgenv().Music then
+        getgenv().Music = true
+        game:GetService("Workspace").DecorationsMouseFilter.SoundHandler.Chken.Sounds.Sound.Playing = true
+    else
+        getgenv().Music = false
+        game:GetService("Workspace").DecorationsMouseFilter.SoundHandler.Chken.Sounds.Sound.Playing = false
+    end
+end)
+--[[
+
+
+        Custom Scripts
+
+
+]]
+
+if game:GetService("Workspace"):WaitForChild('Buildings', 0.01) then
+for _,v in pairs(game:GetService("Workspace").Buildings.KFCPlace:GetChildren()) do
+    if v:IsA("BasePart") then
+    if v.Size == Vector3.new(3.6, 20.5, 53.3) then
+        v:Destroy()
+    end
+    end
+end
+end
+game:GetService("Workspace").DecorationsMouseFilter.SoundHandler.Chken.Sounds.Sound.Playing = false
 local PanicBindBox = game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["Panic Bind"].Side.Box
 PanicBindBox.Text = string.sub(Setting.PanicBind, 14)
 PanicBindBox.Focused:Connect(function()
