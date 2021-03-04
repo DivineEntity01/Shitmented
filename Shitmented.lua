@@ -22,7 +22,7 @@ getgenv().Walkspeed = game:GetService("Players").LocalPlayer.Character.Humanoid.
 if game:GetService('CoreGui'):WaitForChild('Shitmented', 0.08) then
 wait()
 elseif not game:GetService('CoreGui'):WaitForChild('Shitmented', 0.08) then
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DivineEntity01/BSS-01/main/Rodus%20%7C%20UI-Library", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DivineEntity01/Shitmented/main/UI%20Library", true))()
 wait()
 CreateMain("Shitmented")
 CreateTab("Scripts")
