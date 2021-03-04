@@ -1,11 +1,10 @@
 
---Kfc and watermelon
 local HttpService = game:GetService("HttpService");
-local SaveFileName = "Shitmented.pp"
+local SaveFileName = "Shitmented.lua"
 local Configuration = {HideBind = 'Enum.KeyCode.RightAlt', PanicBind = ''}
 if not pcall(function()
     readfile(SaveFileName)
-    end) then
+end) then
 writefile(SaveFileName, HttpService:JSONEncode(Configuration))
 end
 local Setting = HttpService:JSONDecode(readfile(SaveFileName))
