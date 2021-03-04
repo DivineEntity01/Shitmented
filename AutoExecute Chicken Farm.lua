@@ -53,7 +53,9 @@ local function onCharacterAdded(character)
     local lookAt = Vector3.new(-230.136383, -1.94987893, 168.935593)
     local cameraCFrame = CFrame.new(pos, lookAt)
     workspace.CurrentCamera.CFrame = cameraCFrame
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/DivineEntity01/Shitmented/main/Egg%20Salad's%20AutoFarm(Modified).lua", true))()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/DivineEntity01/Shitmented/main/Egg%20Salad's%20AutoFarm(Modified).lua", true))()
+		wait(1)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
    end
 end
 
@@ -73,5 +75,6 @@ workspace.CurrentCamera.CFrame = cameraCFrame
 onPlayerAdded()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DivineEntity01/Shitmented/main/Egg%20Salad's%20AutoFarm(Modified).lua", true))()
-
+wait(2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
 end
