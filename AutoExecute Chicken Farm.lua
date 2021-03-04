@@ -1,5 +1,6 @@
+
 getgenv().AutoExecuteFarm = true
-if getgenv().AutoExecuteFarm then
+if getgenv().AutoExecuteFarm and game.PlaceId == 6131548149 then
 repeat wait()
 until game:IsLoaded()
 local virtualUser = game:GetService('VirtualUser')
