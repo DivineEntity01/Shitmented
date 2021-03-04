@@ -1,5 +1,15 @@
 local PickupPoint = workspace.Interactions.NPCs.ChickenJob["Interaction.Part"]
 local proximityPrompt = PickupPoint:FindFirstChildWhichIsA("ProximityPrompt")
+local GC = getconnections or get_signal_cons
+	if GC then
+		for i,v in pairs(GC(Players.LocalPlayer.Idled)) do
+			if v["Disable"] then
+				v["Disable"](v)
+			elseif v["Disconnect"] then
+				v["Disconnect"](v)
+			end
+		end
+end
 function fireproximityprompt(ProximityPrompt, Amount, Skip)
     assert(ProximityPrompt, "Argument #1 Missing or nil")
     assert(typeof(ProximityPrompt) == "Instance" and ProximityPrompt:IsA("ProximityPrompt"), "Attempted to fire a Value that is not a ProximityPrompt")
