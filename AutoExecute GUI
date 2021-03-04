@@ -1,4 +1,5 @@
 if game.PlaceId == 6131548149 then
+game:GetService("Workspace").DecorationsMouseFilter.SoundHandler.Chken.Sounds.Sound.Playing = false
 local HttpService = game:GetService("HttpService");
 local SaveFileName = "AutoFarmingKFCandWatermelon.lua"
 local Configuration = {AutoEnabled = false}
