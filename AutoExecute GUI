@@ -1,5 +1,4 @@
 if game.PlaceId == 6131548149 then
-game:GetService("Workspace").DecorationsMouseFilter.SoundHandler.Chken.Sounds.Sound.Playing = false
 local HttpService = game:GetService("HttpService");
 local SaveFileName = "AutoFarmingKFCandWatermelon.lua"
 local Configuration = {AutoEnabled = false}
@@ -79,8 +78,9 @@ game:GetService("CoreGui")["Chicken AutoFarm"].Top.Container["AutoDestroy"].TabC
 if Setting.AutoEnabled then
     game:GetService("CoreGui")["Chicken AutoFarm"].Top.Container["Enable/Disable"].TabContainer.Enabled.TextColor3 = Color3.new(0, 255, 0)
     game:GetService("CoreGui")["Chicken AutoFarm"].Top.Container["Enable/Disable"].TabContainer.Enabled.Toggled.Value = true
-    loadstring(game:HttpGet(('https://raw.githubusercontent.com/DivineEntity01/Shitmented/main/AutoExecute%20Chicken%20Farm.lua')))()
     print("AutoExecuting:",Setting.AutoEnabled)
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/DivineEntity01/Shitmented/main/AutoExecute%20Chicken%20Farm.lua')))()
+    game:GetService("Workspace").DecorationsMouseFilter.SoundHandler.Chken.Sounds.Sound.Playing = false
 else
     print("AutoExecuting:",Setting.AutoEnabled)
     game:GetService("CoreGui")["Chicken AutoFarm"].Top.Container["Enable/Disable"].TabContainer.Enabled.TextColor3 = Color3.new(255, 255, 255)
