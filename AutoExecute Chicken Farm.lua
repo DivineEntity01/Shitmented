@@ -41,6 +41,7 @@ end)
 wait(1)
 if game.Players.LocalPlayer.PlayerGui:WaitForChild('Menu.UI', 0.02) then
 game.Players.LocalPlayer.PlayerGui["Menu.UI"]:Destroy()
+game.Players.LocalPlayer.PlayerGui["HP.UI"].Enabled = true
 else
 end
 --game:GetService("ReplicatedStorage").Play:FireServer()
