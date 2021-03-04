@@ -1,6 +1,6 @@
 
 local HttpService = game:GetService("HttpService");
-local SaveFileName = "Shitmented.lua"
+local SaveFileName = "Shitmented.pp"
 local Configuration = {HideBind = 'Enum.KeyCode.RightAlt', PanicBind = ''}
 if not pcall(function()
     readfile(SaveFileName)
