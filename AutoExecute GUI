@@ -1,3 +1,4 @@
+if game.PlaceId == 6131548149 then
 local HttpService = game:GetService("HttpService");
 local SaveFileName = "AutoFarmingKFCandWatermelon.lua"
 local Configuration = {AutoEnabled = false}
@@ -112,4 +113,5 @@ end
 else
     wait(1)
     game:GetService("CoreGui")["Chicken AutoFarm"].Top.Container["AutoDestroy"].TabContainer.Enabled.Text = "Disabled"
+end
 end
