@@ -2,7 +2,7 @@ local PickupPoint = workspace.Interactions.NPCs.ChickenJob["Interaction.Part"]
 local proximityPrompt = PickupPoint:FindFirstChildWhichIsA("ProximityPrompt")
 local GC = getconnections or get_signal_cons
 	if GC then
-		for i,v in pairs(GC(Players.LocalPlayer.Idled)) do
+		for i,v in pairs(GC(game.Players.LocalPlayer.Idled)) do
 			if v["Disable"] then
 				v["Disable"](v)
 			elseif v["Disconnect"] then
