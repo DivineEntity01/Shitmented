@@ -1,0 +1,143 @@
+wedge = Instance.new("WedgePart")
+t = true
+v3 = Vector3.new
+
+if game:GetService("Workspace"):WaitForChild("Buildings", 0.06) then
+game:GetService("Workspace").Buildings:Destroy()
+game:GetService("Workspace").YourStuff:Destroy()  
+end
+for i,v in pairs(game:GetService("Workspace").Props:GetChildren()) do
+    if v.Name == "StreetLamps" then
+        v:Destroy()
+end
+end
+for i,v in pairs(game:GetService("Workspace").DecorationsMouseFilter.Builds:GetChildren()) do
+    if v:IsA("BasePart") then
+        if v.Name == "BuildingBarrier" then
+            v:Destroy()
+end
+
+end
+end
+game:GetService("Lighting").Brightness = 3
+game:GetService("Lighting").ClockTime = 17.4
+if game.workspace:WaitForChild("NIGGERS", 0.05) then
+    game.workspace:WaitForChild("NIGGERS", 0.05):Destroy()
+end
+if game:GetService("Lighting"):WaitForChild("Atmosphere", 0.02) then
+    game:GetService("Lighting").ClockTime = 14
+    game:GetService("Lighting").ShadowSoftness = 0
+    game:GetService("Lighting"):WaitForChild("Atmosphere", 0.02):Destroy()
+    game:GetService("Lighting"):WaitForChild("Bloom", 0.02):Destroy()
+    game:GetService("Lighting").DepthOfField:Destroy()
+end
+BAB = Instance.new("Part")
+BAB.Name = "NIGGERS"
+BAB.Parent = workspace
+BAB.Anchored = true
+BAB.Position = v3(45, -0.6, -4.10001)
+BAB.Size = v3(1000, 1, 1000)
+BAB.Transparency = 0.4
+wait()
+BS = Instance.new("Part", workspace.NIGGERS)
+BS.BrickColor = BrickColor.new("Black")
+BS.Name = "NIGGERSSTREET"
+BS.Anchored = true
+BS.Position = v3(45, -0.5, -4.10001)
+BS.Size = v3(25.6, 0.62, 1000)
+
+BS2 = Instance.new("Part", workspace.NIGGERS)
+BS2.BrickColor = BrickColor.new("Black")
+BS2.Name = "NIGGERSSTREETTHESECUEL"
+BS2.Anchored = true
+BS2.Position = v3(61.9, -0.5, -21)
+BS2.Size = v3(25.6, 0.6, 1000)
+BS2.Rotation = v3(0, -90, 0)
+
+BS3 = Instance.new("Part", workspace.NIGGERS)
+BS3.BrickColor = BrickColor.new("Black")
+BS3.Name = "NIGGERSSTREETTHIRDIS3"
+BS3.Anchored = true
+BS3.Position = v3(28.1, -0.5, -370)
+BS3.Size = v3(25.6, 0.6, 1000)
+BS3.Rotation = v3(0, -90, 0)
+
+BPS = Instance.new("Part", workspace.NIGGERS)
+BPS.BrickColor = BrickColor.new("Black")
+BPS.Name = "THENIGGAPATHINTOTHENIGGARESTAURANT"
+BPS.Anchored = true
+BPS.Position = v3(-49.1, 0.25, 148)
+BPS.Size = v3(10, 0.6, 292)
+
+BPD = Instance.new("Part", workspace.NIGGERS)
+BPD.BrickColor = BrickColor.new("Black")
+BPD.Name = "THENIGGAPATHINTOTHENIGGARESTAURANT2"
+BPD.Anchored = true
+BPD.Position = v3(-165.1, 0.25, 54.5)
+BPD.Size = v3(10, 0.6, 105)
+
+BPS1 = Instance.new("Part", workspace.NIGGERS)
+BPS1.BrickColor = BrickColor.new("Black")
+BPS1.Name = "THENIGGAPATHINTOTHENIGGARESTAURANT22"
+BPS1.Anchored = true
+BPS1.Position = v3(-109.05, 0.25, 102)
+BPS1.Size = v3(122.1, 0.5, 10)
+
+BPW = Instance.new("WedgePart", workspace.NIGGERS)
+BPW.BrickColor = BrickColor.new("Black")
+BPW.Name = "NIGGERWEDGE"
+BPW.Anchored = true
+BPW.Position = v3(-49.1, 0.35, -2)
+BPW.Size = v3(10, 0.5, 8)
+
+BPW2 = Instance.new("WedgePart", workspace.NIGGERS)
+BPW2.BrickColor = BrickColor.new("Black")
+BPW2.Name = "NIGGERWEDGE2"
+BPW2.Anchored = true
+BPW2.Position = v3(-165.1, 0.35, -2)
+BPW2.Size = v3(10, 0.5, 8)
+
+PF1, PF2, PF3, PF4, PF5, PF6 = Instance.new("Part", workspace.NIGGERS), Instance.new("Part", workspace.NIGGERS), Instance.new("Part", workspace.NIGGERS), Instance.new("Part", workspace.NIGGERS), Instance.new("Part", workspace.NIGGERS), Instance.new("Part", workspace.NIGGERS)
+PF1.Anchored, PF2.Anchored, PF3.Anchored, PF4.Anchored, PF5.Anchored = t, t, t, t, t
+PF1.Name, PF2.Name, PF3.Name, PF4.Name, PF5.Name = "NIGGAPLATFORM1", "NIGGAPLATFORM2", "NIGGAPLATFORM3", "AINT RACIST", "NIGGA223"
+PF1.Position, PF2.Position, PF3.Position, PF4.Position, PF5.Position = v3(-130.25, 6.65, 149.5), v3(-92, 4.5, 18), v3(-106, 8.5, 19), v3(-130, 4.5, -73), v3(-116, 8.5, -73)
+PF1.Size, PF2.Size, PF3.Size, PF4.Size, PF5.Size = v3(54.5, 0.3, 55), v3(8, 1, 8), v3(8, 1, 10), v3(8, 1, 8), v3(8, 1, 8)
+PF6.Anchored, PF6.Name = t, "AYY MA NIGGA"
+PF6.Position, PF6.Size = v3(-114.5, 19.5, -42.5), v3(11, 1, 13)
+
+PFB,  PFB2,  PFB3 = Instance.new("Part", workspace.NIGGERS), Instance.new("Part", workspace.NIGGERS), Instance.new("Part", workspace.NIGGERS)
+PFB.Anchored, PFB2.Anchored, PFB3.Anchored = true, true, true
+PFB.Name, PFB2.Name, PFB3.Name = "NIGGERPAIN", "NIGGERPAIN2", "NIGGERPAIN3"
+PFB.Position, PFB2.Position, PFB3.Position = v3(-106, 19.5, -21), v3(-106, 19.5, -62), v3(-92, 19.5, -72.5)
+PFB.Size, PFB2.Size, PFB3.Size = v3(8.8, 1, 30), v3(8, 1, 52), v3(20, 1, 73)
+
+PFBW1, PFBW2, PFBW3 = Instance.new("WedgePart", workspace.NIGGERS), Instance.new("WedgePart", workspace.NIGGERS), Instance.new("WedgePart", workspace.NIGGERS)
+PFBW1.Anchored, PFBW2.Anchored, PFBW3.Anchored = true, true, true
+PFBW1.Name, PFBW2.Name, PFBW3.Name = "INEEDTOLEARNLUA.EXE", "INEEDTOLEARNLUA2.EXE", "INEEDTOLEARNLUA3.EXE"
+PFBW1.Size, PFBW2.Size, PFBW3.Size = v3(8, 4, 6), v3(8, 4, 6), v3(8, 11, 20)
+PFBW1.Position, PFBW2.Position, PFBW3.Position = v3(-92, 3, 11), v3(-99, 7, 18), v3(-106, 14.5, 4)
+PFBW2.Rotation, PFBW3.Rotation = v3(0, -90, 0), v3(-180, 0, -180)
+
+PW, PW2, PW3 = Instance.new("WedgePart", workspace.NIGGERS), Instance.new("WedgePart", workspace.NIGGERS), Instance.new("WedgePart", workspace.NIGGERS)
+PW.Anchored, PW2.Anchored, PW3.Anchored = t, t, t
+PW.Parent, PW2.Parent, PW3.Parent = workspace.NIGGERS, workspace.NIGGERS, workspace.NIGGERS
+PW.Name,PW2.Name, PW3.Name = "NIGGAWHY", "NIGGAWHY2", "NIGGAWHY3"
+PW.Position, PW2.Position, PW3.Position = v3(-130, 3, -66), v3(-123, 7, -73), v3(-116, 14.5, -59)
+PW.Size, PW2.Size, PW3.Size = v3(8, 4, 6), v3(8, 4, 6), v3(8, 11, 20)
+PW.Rotation, PW2.Rotation =  v3(180, 0, 180), v3(0, 90, 0)
+
+as, as2, as3 = Instance.new("Part"), Instance.new("Part"), Instance.new("Part")
+as.Anchored, as2.Anchored = t, t
+as.BrickColor, as2.BrickColor = BrickColor.new("Medium stone grey"), BrickColor.new("Medium stone grey")
+as.Parent, as2.Parent = workspace.NIGGERS, workspace.NIGGERS
+as.Position, as2.Position = v3(-125, 0.5, -195.525), v3(-63, -9.5, -505.5)
+as.Size, as2.Size = v3(310, 1, 319), v3(80, 1, 33)
+as3.Anchored, as3.BrickColor, as3.Parent = t, BrickColor.new("Dark grey"), workspace.NIGGERS
+as3.Size, as3.Position = v3(4000, 2, 7004), v3(-105, -39.5, -420)
+
+g = Instance.new("Part", workspace.NIGGERS)
+g.Anchored, g.BrickColor, g.Material, g.Transparency, g.Name = t, BrickColor.new("Bright red"), Enum.Material.Neon, 0.8, "YARRNIGGERS"
+g.Size, g.Position = v3(96.64, 0.18, 0.360001), v3(-19.48, 1.09, -147.78)
+g2 = workspace.NIGGERS.YARRNIGGERS:Clone()
+g2.Parent, g2.Name = workspace.NIGGERS, "CHOPTHENIGGERHEAD"
+g2.Size, g2.Position = v3(0.320004, 0.18, 60.2), v3(-67.5, 1.09, -117.72)
