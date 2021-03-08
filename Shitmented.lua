@@ -1,6 +1,13 @@
+if game:GetService("CoreGui"):WaitForChild("Shitmented", 1) then
+game:GetService("CoreGui")["Shitmented"]:Destroy()
+end
+if game.workspace:WaitForChild('KfcAndWatermelon', 1) then
+game.workspace:WaitForChild('KfcAndWatermelon', 1):Destroy()
+end
+getgenv().KillAll = false
 
 local HttpService = game:GetService("HttpService");
-local SaveFileName = "Shitmented.pp"
+local SaveFileName = "Shitmented.lua"
 local Configuration = {HideBind = 'Enum.KeyCode.RightAlt', PanicBind = ''}
 if not pcall(function()
     readfile(SaveFileName)
@@ -114,11 +121,7 @@ end)
 
 CreateButton(tabs['Scripts'], "Giant Ass Baseplate", "Creates a Huge Baseplate, and destroys buildings",function()
 if not getgenv().Baseplate then
-getgenv().Baseplate = true
-game:GetService("Workspace").Props.StreetLamps.StreetLamps.Part.Size = Vector3.new(10000, 1, 10000)
-game:GetService("Workspace").Props.StreetLamps.StreetLamps.Part.Position = Vector3.new(game:GetService("Workspace").Props.TrashDecal4.Position)
-game:GetService("Workspace").Buildings:Destroy()
-game:GetService("Workspace").YourStuff:Destroy()
+loadstring(game:HttpGet'https://raw.githubusercontent.com/DivineEntity01/Shitmented/main/HYPERMEGABASEPLATE')()
 end
 end)
 
@@ -176,7 +179,10 @@ end)
 CreateToggle(tabs['Scripts'], "Kill Aura", "Kinda works, shoot to someone close and you'll kill him/them",function()
     if not getgenv().KillAll then
     getgenv().KillAll = true
-    while getgenv().KillAll do
+    while true do
+        if not getgenv().KillAll then
+            break
+        end
     local players = game.Players:GetPlayers()
     for i = 2, #players do local v = players[i]
         if v.Character and v.Character:FindFirstChild("Head") and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health > 0 and not v.Character:FindFirstChild("ForceField") then
@@ -186,9 +192,9 @@ CreateToggle(tabs['Scripts'], "Kill Aura", "Kinda works, shoot to someone close 
     wait(.1)
     event:FireServer("Reload", gun, 1e17, 1e17)
 end
-        else
-            getgenv().KillAll = false
-    end
+else
+    getgenv().KillAll = false
+end
 end)
 
 --[[
