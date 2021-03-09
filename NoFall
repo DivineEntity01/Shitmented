@@ -11,7 +11,7 @@ while wait(0.05) do
     end
     count = count + 0.5
 end
-if not character:WaitForChild('NIGGA', 0.02) and count >= 0.5 and rootpart.Position.Y > 7 or rootpart.Position.Y > -6 then
+if not character:WaitForChild('NIGGA', 0.02) and count >= 0.5 and rootpart.Position.Y > 7 or rootpart.Position.Y > -10 then
 local Ray = Instance.new("Part")
 Ray.CanCollide = false
 Ray.Parent = game.Players.LocalPlayer.Character
