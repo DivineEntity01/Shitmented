@@ -44,8 +44,7 @@ local function onCharacterAdded(character)
 end
 
 local function onPlayerAdded(player)
-	game.Players.LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
-ende.Players.LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
+game.Players.LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
 end
 AntiFall()
 onPlayerAdded()
