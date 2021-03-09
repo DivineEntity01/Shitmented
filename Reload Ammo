@@ -1,0 +1,83 @@
+if not workspace:WaitForChild('NINGA', 1) then
+v3 = Vector3.new
+A = Instance.new("Part")
+A.Parent = workspace
+A.Name, A.Anchored, A.Transparency = "NINGA", true, 1
+A.Position, A.Size = v3(91.3911, -5.50698, -82.9602), v3(40, 1, 40)
+end
+wait()
+local pos = Vector3.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+local lookAt = Vector3.new(91.4985, 5.5, -84.8357)
+local cameraCFrame = CFrame.new(pos, lookAt)
+workspace.CurrentCamera.CFrame = cameraCFrame
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(90.9569092, -2.00698137, -83.0258102)
+local args = {
+    [1] = "RefillAmmo",
+    [2] = "GunDealer",
+    [3] = "B-Revolver",
+    [4] = workspace.Interactions.Vendors.GunDealer
+    
+}
+
+local args0 = {
+    [1] = "RefillAmmo",
+    [2] = "GunDealer",
+    [3] = "EZI",
+    [4] = workspace.Interactions.Vendors.GunDealer
+}
+
+local args1 = {
+    [1] = "RefillAmmo",
+    [2] = "GunDealer",
+    [3] = "Cyber Shotgun",
+    [4] = workspace.Interactions.Vendors.GunDealer
+}
+
+local args2 = {
+    [1] = "RefillAmmo",
+    [2] = "GunDealer",
+    [3] = "C-AKS",
+    [4] = workspace.Interactions.Vendors.GunDealer
+}
+
+local args3 = {
+    [1] = "RefillAmmo",
+    [2] = "GunDealer",
+    [3] = "Flamethrower",
+    [4] = workspace.Interactions.Vendors.GunDealer
+}
+
+game:GetService("ReplicatedStorage")["_G.ShopConfig"].PurchaseEvent:FireServer(unpack(args))
+wait()
+game:GetService("ReplicatedStorage")["_G.ShopConfig"].PurchaseEvent:FireServer(unpack(args1))
+wait()
+game:GetService("ReplicatedStorage")["_G.ShopConfig"].PurchaseEvent:FireServer(unpack(args2))
+wait()
+game:GetService("ReplicatedStorage")["_G.ShopConfig"].PurchaseEvent:FireServer(unpack(args3))
+wait()
+game:GetService("ReplicatedStorage")["_G.ShopConfig"].PurchaseEvent:FireServer(unpack(args0))
+
+
+local argsa = {
+    [1] = "PurchaseItem",
+    [2] = "GunDealer",
+    [3] = "Medkit",
+    [4] = workspace.Interactions.Vendors.GunDealer
+}
+
+local argse = {
+    [1] = "PurchaseItem",
+    [2] = "GunDealer",
+    [3] = "Bandage",
+    [4] = workspace.Interactions.Vendors.GunDealer
+}
+
+
+times = 0
+repeat wait(0.3)
+times = times + 1
+game:GetService("ReplicatedStorage")["_G.ShopConfig"].PurchaseEvent:FireServer(unpack(argsa))
+wait()
+game:GetService("ReplicatedStorage")["_G.ShopConfig"].PurchaseEvent:FireServer(unpack(argse))
+until times >= 6
+times = 0
