@@ -1,0 +1,51 @@
+local character = game.Players.LocalPlayer.Character
+local humanoid = game.Players.LocalPlayer.Character:WaitForChild("Humanoid", 5)
+local rootpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+local count = 0
+function AntiFall()
+humanoid.StateChanged:Connect(function(old, new)
+if new == Enum.HumanoidStateType.Freefall then
+while wait(0.05) do
+    if count >= 0.5 then
+        break
+    end
+    count = count + 0.5
+end
+if not character:WaitForChild('NIGGA', 0.02) and count >= 0.5 and rootpart.Position.Y > 7 or rootpart.Position.Y > -6 then
+local Ray = Instance.new("Part")
+Ray.CanCollide = false
+Ray.Parent = game.Players.LocalPlayer.Character
+Ray.Size = Vector3.new(1, 70, 1)
+Ray.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+Ray.Name = "NIGGA"
+Ray.Transparency = 1
+local weld = Instance.new("WeldConstraint")
+weld.Parent = Ray
+weld.Part0 = Ray
+weld.Part1 = rootpart
+end
+end
+
+
+if old == Enum.HumanoidStateType.Freefall then
+    count = 0
+    if character:WaitForChild('NIGGA', 0.02) then
+            character:WaitForChild('NIGGA', 0.02):Destroy()
+    end
+    end
+end)
+end
+
+local function onCharacterAdded(character)
+	if character.Name == game.Players.LocalPlayer.Name then
+	wait(5)
+    AntiFall()
+   end
+end
+
+local function onPlayerAdded(player)
+	game.Players.LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
+ende.Players.LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
+end
+AntiFall()
+onPlayerAdded()
