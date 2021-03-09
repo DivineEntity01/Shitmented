@@ -86,6 +86,64 @@ game:GetService("UserInputService").InputBegan:connect(onInputBegan)
 
 
 ]]
+
+CreateToggle(tabs['Combat'], "ReloadAmmo", "Reloads Ammo and Buys Medkits",function()
+    if not getgenv().Reload then
+        local StarterGui = game:GetService("StarterGui") 
+        getgenv().Reload = true
+        StarterGui:SetCore("SendNotification", {
+	    Title = "RELOADING",
+	    Text = ">>THIS TAKES LIKE 10 SECONDS<<",
+	    Duration = 5})
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/DivineEntity01/Shitmented/main/Reload%20Ammo", true))()
+        wait(10)
+         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(88.5984497, 3.96082091, -85.1608734)
+    else
+        getgenv().Reload = false
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(88.5984497, 3.96082091, -85.1608734)
+    end
+end)
+
+CreateToggle(tabs['Combat'], "Instant Use", "Uses Medkits/Bandages instantly, manually equip them",function()
+    if not getgenv().Instant then
+        getgenv().Instant = true
+        function INSTANT()
+game.Players.LocalPlayer.Character.ChildAdded:Connect(function(child)
+    if child:IsA("Tool") and getgenv().Instant then
+        if child.Name == 'Bandage' then
+        wait()
+local args = {
+    [1] = "HealSelf",
+    [2] = game:GetService("Players").LocalPlayer.Character.Bandage
+}
+        game:GetService("ReplicatedStorage")["Healing.Assets"]["Healing.Remote"]:FireServer(unpack(args))
+        elseif child.Name == "Medkit" then
+            wait()
+local args = {
+    [1] = "HealSelf",
+    [2] = game:GetService("Players").LocalPlayer.Character.Medkit
+}
+game:GetService("ReplicatedStorage")["Healing.Assets"]["Healing.Remote"]:FireServer(unpack(args))
+        end
+    end
+end)
+end
+        INSTANT()
+        local function onCharacterAdded(character)
+	if character.Name == game.Players.LocalPlayer.Name then
+	wait(5)
+    INSTANT()
+    end
+    end
+
+    local function onPlayerAdded(player)
+    game.Players.LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
+    end
+    onPlayerAdded()
+    else
+        getgenv().Instant = false
+    end
+end)
 CreateToggle(tabs['Blatant'], "Farm Cash", "Executes a modified version of Egg Salad's",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/DivineEntity01/Shitmented/main/Egg%20Salad's%20AutoFarm(Modified).lua", true))()
     if not getgenv().ChickenFarm then
@@ -103,6 +161,7 @@ CreateToggle(tabs['Blatant'], "Farm Cash", "Executes a modified version of Egg S
     else
     getgenv().ChickenFarm = false
     Noclipping:Disconnect()  
+    
     end
 end)
 
@@ -127,7 +186,7 @@ CreateButton(tabs['Blatant'], "NoFall", "Kinda Works, i don't really know",funct
     end
 end)
 
-CreateButton(tabs['Blatant'], "Giant Ass Baseplate", "Creates a Huge Baseplate, and destroys buildings",function()
+CreateButton(tabs['Blatant'], "HYPERMEGABASEPLATE", "Creates a Huge Baseplate, and destroys buildings",function()
 if not getgenv().Baseplate then
 loadstring(game:HttpGet'https://raw.githubusercontent.com/DivineEntity01/Shitmented/main/HYPERMEGABASEPLATE')()
 end
