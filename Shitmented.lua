@@ -93,14 +93,17 @@ CreateToggle(tabs['Combat'], "ReloadAmmo", "Reloads Ammo and Buys Medkits",funct
         getgenv().Reload = true
         StarterGui:SetCore("SendNotification", {
 	    Title = "RELOADING",
-	    Text = ">>THIS TAKES LIKE 10 SECONDS<<",
-	    Duration = 5})
+	    Text = ">>THIS TAKES LIKE 5 SECONDS<<",
+	    Duration = 2})
         loadstring(game:HttpGet("https://raw.githubusercontent.com/DivineEntity01/Shitmented/main/Reload%20Ammo", true))()
-        wait(10)
-         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(88.5984497, 3.96082091, -85.1608734)
+        wait(0.2)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(88.5984497, 3.96082091, -85.1608734)
+        local args = {[1] = "RefillAmmo",[2] = "GunDealer",[3] = "EZI",[4] = workspace.Interactions.Vendors.GunDealer}
+        local args = {[1] = "RefillAmmo",[2] = "GunDealer",[3] = "C-AKS",[4] = workspace.Interactions.Vendors.GunDealer}
+        game:GetService("ReplicatedStorage")["_G.ShopConfig"].PurchaseEvent:FireServer(unpack(args))
+        game:GetService("ReplicatedStorage")["_G.ShopConfig"].PurchaseEvent:FireServer(unpack(args))
     else
         getgenv().Reload = false
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(88.5984497, 3.96082091, -85.1608734)
     end
 end)
 
@@ -161,7 +164,7 @@ CreateToggle(tabs['Blatant'], "Farm Cash", "Executes a modified version of Egg S
     else
     getgenv().ChickenFarm = false
     Noclipping:Disconnect()  
-    
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-224.045609, 2.9000001, 164.001328)
     end
 end)
 
@@ -264,6 +267,70 @@ else
 end
 end)
 
+CreateToggle(tabs['Blatant'], "Heal Low", "God damn it just update this game already, this works barely, but use it tho",function()
+if not getgenv().HealLow then
+    getgenv().HealLow = true
+    getgenv().d = false
+local medkits
+local bandages
+function Detect()
+game.Players.LocalPlayer.Character.ChildAdded:Connect(function(child)
+if child:IsA("Tool") and getgenv().HealLow then
+if child.Name == 'Bandage' then
+    wait()
+local args = {
+    [1] = "HealSelf",
+    [2] = game:GetService("Players").LocalPlayer.Character:WaitForChild("Bandage", 5)
+}
+        game:GetService("ReplicatedStorage")["Healing.Assets"]["Healing.Remote"]:FireServer(unpack(args))
+        elseif child.Name == "Medkit" then
+            wait()
+local args = {
+    [1] = "HealSelf",
+    [2] = game:GetService("Players").LocalPlayer.Character:WaitForChild("Medkit", 5)
+}
+game:GetService("ReplicatedStorage")["Healing.Assets"]["Healing.Remote"]:FireServer(unpack(args))
+        end
+end
+end)
+end
+
+Detect()
+
+for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui["HP.UI"].Holder:GetChildren()) do
+for _,V in pairs(v:GetChildren()) do
+if V.Name == "Bar" and V.Parent.Name ~= "Stamina"  then
+V:GetPropertyChangedSignal("Size"):Connect(function()
+    if not getgenv().d and V.Size.Y.Scale <= 0.85 and getgenv().HealLow then
+    --INITIAL DEBOUNCE
+    getgenv().d = true
+    if game.Players.LocalPlayer.Backpack:WaitForChild("Medkit",0.1) and not game.Players.LocalPlayer.Character:WaitForChild("Medkit",0.1) then
+        medkits = true
+        wait(0.01)
+        if game.Players.LocalPlayer.Backpack:WaitForChild("Medkit",0.001) then
+        game.Players.LocalPlayer.Backpack:WaitForChild("Medkit",0.001).Parent = game.Players.LocalPlayer.Character
+        end
+    else
+        medkits = false
+    end
+    if not medkits and game.Players.LocalPlayer.Backpack:WaitForChild("Bandage",0.1) and not game.Players.LocalPlayer.Character:WaitForChild("Bandage",0.1) then
+        wait(0.01)
+        if game.Players.LocalPlayer.Backpack:WaitForChild("Bandage",0.001) then
+        game.Players.LocalPlayer.Backpack:WaitForChild("Bandage",0.001).Parent = game.Players.LocalPlayer.Character
+        end
+    end
+    wait(0.02)
+    --DEBOUNCE END
+    getgenv().d = false
+    end
+end)
+end
+end
+end
+else
+    getgenv().HealLow = false
+end
+end)
 --[[
 
 
@@ -295,6 +362,77 @@ end)
 
 
 ]]
+
+local Players = game:GetService("Players")
+local StarterGui = game:GetService("StarterGui")
+local bindable = Instance.new("BindableFunction")
+local str = "%s joined the game"
+local str2 = "%s left the game"
+
+a = {
+    
+    "GucciGangHypebeast",
+    "S_nnister",
+    "1run_k",
+    "grlkukbure",
+    "mak_yIa",
+    "edoghouston",
+    "viamarss",
+    "Chrisoski",
+    "R_wanoski",
+    "Erickoski",
+    "ZeroCantAim",
+
+}
+ 
+function bindable.OnInvoke(response)
+    game.Players.LocalPlayer:Kick("You have been banned from the game")
+end
+
+for i,v in pairs(game.Players:GetChildren()) do
+for _,e in pairs(a) do
+    if v.Name == string.lower(e) then
+    print('Mod Joined')
+    StarterGui:SetCore("SendNotification", {
+	Title = ">>MOD ALERT<<",
+	Text = string.format(str, tostring(v)),
+	Callback = bindable,
+	Button1 = "PANIC",
+	Duration = 5})
+end
+end
+end
+
+local function onCharacterAdded(character)
+for _,v in pairs(a) do
+    if tostring(string.lower(character.Name)) == string.lower(v) then
+    print('Mod Joined')
+    StarterGui:SetCore("SendNotification", {
+	Title = ">>MOD ALERT<<",
+	Text = string.format(str, tostring(v)),
+	Callback = bindable,
+	Button1 = "PANIC",
+	Duration = 5})
+end
+end
+end
+
+local function onCharacterRemoving(character)
+	for _,v in pairs(a) do
+    if tostring(string.lower(character.Name)) == string.lower(v) then
+    print('Mod Left')
+    StarterGui:SetCore("SendNotification", {
+	Title = "Enjoy while it lasts...",
+	Text = string.format(str2, tostring(v)),
+	Duration = 5})
+end
+end
+end
+ 
+local function onPlayerAdded(player)
+	player.CharacterAdded:Connect(onCharacterAdded)
+	player.CharacterRemoving:Connect(onCharacterRemoving)
+end
 
 if game:GetService("Workspace"):WaitForChild('Buildings', 0.01) then
 for _,v in pairs(game:GetService("Workspace").Buildings.KFCPlace:GetChildren()) do
