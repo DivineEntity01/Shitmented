@@ -358,7 +358,7 @@ local bindable = Instance.new("BindableFunction")
 local str = "%s joined the game"
 local str2 = "%s left the game"
 getgenv().result = {}
-
+getgenv().resultr = {}
 if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Cook.UI", 10) then
     if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ModAlert", 0.01) then
     else
@@ -412,6 +412,22 @@ end
 end
 end
 
+function checkrepeat()
+while wait(60) do
+for i,v in pairs(game.Players:GetChildren()) do
+for _,e in pairs(a) do
+    if string.match(v.Name:lower(), e:lower()) then
+    table.insert(getgenv().resultr, e)
+    game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ModAlert",5).Enabled = true
+    elseif not string.match(v.Name:lower(), e:lower()) and #getgenv().resultr == 0 then
+    game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ModAlert",5).Enabled = false
+end
+end
+end
+getgenv().resultr = {}
+end
+end
+
 function check()
 for i,v in pairs(game.Players:GetChildren()) do
 for _,e in pairs(a) do
@@ -450,6 +466,7 @@ end
 
 Players.PlayerAdded:Connect(onPlayerAdded)
 finds()
+checkrepeat()
 
 
 if game:GetService("Workspace"):WaitForChild('Buildings', 0.01) then
