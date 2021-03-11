@@ -435,6 +435,8 @@ for _,v in pairs(a) do
 	Callback = bindable,
 	Button1 = "PANIC",
 	Duration = 5})
+else
+game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ModAlert",5).Enabled = false			
 end
 end
 end
