@@ -399,7 +399,8 @@ a = {
     "Chrisoski",
     "R_wanoski",
     "Erickoski",
-    "ZeroCantAim"
+    "ZeroCantAim",
+	"luapsy"
 }
  
 function bindable.OnInvoke(response)
