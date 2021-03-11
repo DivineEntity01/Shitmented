@@ -188,6 +188,7 @@ end)
 
 CreateButton(tabs['Blatant'], "HYPERMEGABASEPLATE", "Creates a Huge Baseplate, and destroys buildings",function()
 if not getgenv().Baseplate then
+getgenv().Baseplate = true
 loadstring(game:HttpGet'https://raw.githubusercontent.com/DivineEntity01/Shitmented/main/HYPERMEGABASEPLATE')()
 end
 end)
