@@ -223,6 +223,7 @@ gw2.Parent, gw2.Name = workspace.NIGGERS, "IHATENIGGERS2"
 gw2.Size, gw2.Position, gw2.Rotation = v3(12, 4, 7) ,v3(-117, 3, -329.5), v3(0, 0, 0)
 
 for n, s in pairs(workspace.NIGGERS:GetChildren()) do
+workspace.NIGGERS.Material = Enum.Material.SmoothPlastic
 if s:IsA("BasePart") then
 if s.Material == Enum.Material.Plastic then
 s.Material = Enum.Material.SmoothPlastic
