@@ -163,7 +163,8 @@ CreateToggle(tabs['Blatant'], "Farm Cash", "Executes a modified version of Egg S
     game:GetService('RunService').Stepped:Connect(NoclipLoop)
     else
     getgenv().ChickenFarm = false
-    Noclipping:Disconnect()  
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-224.045609, 7.9000001, 164.001328)
+    NoclipLoop:Disconnect()  
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-224.045609, 2.9000001, 164.001328)
     end
 end)
