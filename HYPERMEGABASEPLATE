@@ -145,6 +145,31 @@ we = Instance.new("WedgePart", workspace.NIGGERS)
 we.Anchored, we.BrickColor, we.Name, we.Transparency = t, BrickColor.new("Dark taupe"), "NEGJER", 0.4
 we.Size, we.Position, we.Rotation = v3(10, 23, 34), v3(-37, -8, -509), v3(0, 90, 0)
 
+gf2 = gf:Clone()
+gf2.Parent, gf2.Size, gf2.Position, gf2.Name, gf2.Transparency = workspace.NIGGERS, v3(1, 4, 21), v3(89.62, 2.7, -84.5), "FUCKINGFAGGOTS", 0.4
+
+gf3 = gf2:Clone()
+gf3.Parent, gf3.Name = workspace.NIGGERS, "FUCKINGTRANNIES"
+gf3.Size, gf3.Position = v3(1.15, 0.65, 20.8), v3(89.22, 4.02, -84.6)
+
+gf4 = gf3:Clone()
+gf4.Parent, gf4.Name = workspace.NIGGERS, "FUCKJANNIES"
+gf4.Size, gf4.Position = v3(1.15, 5.15, 20.8), v3(89.62, 7.97, -84.6)
+
+gf5 = gf2:Clone()
+gf5.Parent, gf5.Name = workspace.NIGGERS, "FUCKFEMBOYS"
+gf5.Size, gf5.Position = v3(5.3, 3.6, 2.7), v3(80.85, 2.7, -86.05)
+
+gf51 = gf5:Clone()
+gf51.Parent, gf51.Size, gf51.Position = workspace.NIGGERS, v3(6, 0.5, 3.2), v3(80.85, 2.85, -86)
+
+gf6 = gf5:clone()
+gf6.Parent, gf6.Name = workspace.NIGGERS, "FUCKFURRIES"
+gf5.Size, gf5.Position = v3(5.3, 3.6, 2.7), v3(80.85, 2.7, -72.65)
+
+gf61 = gf51:Clone()
+gf61.Parent,gf61.Position = workspace.NIGGERS, v3(80.85, 2.7, -72.6)
+
 tq = Instance.new("Part", workspace.NIGGERS)
 tq.Anchored, tq.BrickColor, tq.Name, tq.Transparency = t, BrickColor.new("Dark taupe"), "FUCKK", 0.4
 tq.Size, tq.Position = v3(151.5, 0.5, 107.5), v3(135.75, 0.75, -89.25)
