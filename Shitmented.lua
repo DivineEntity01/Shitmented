@@ -270,6 +270,7 @@ end)
 CreateToggle(tabs['Blatant'], "Heal Low", "God damn it just update this game already, this works barely, but use it tho",function()
 if not getgenv().HealLow then
     getgenv().HealLow = true
+    wait(0.5)
     getgenv().d = false
 local medkits
 local bandages
@@ -369,8 +370,24 @@ local bindable = Instance.new("BindableFunction")
 local str = "%s joined the game"
 local str2 = "%s left the game"
 
+
+if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Cook.UI", 10) then
+    if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ModAlert", 0.01) then
+        game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ModAlert",0.01):Destroy()
+    end
+    local sd = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Cook.UI"):Clone()
+    sd.Name, sd.Parent = "ModAlert", game:GetService("Players").LocalPlayer.PlayerGui
+    wait(0.005)
+    sd.Enabled, sd.Frame.TextLabel.Text = false, "THERE'S A MOD IN GAME"
+end
+
+
+
+
+
+
+
 a = {
-    
     "GucciGangHypebeast",
     "S_nnister",
     "1run_k",
@@ -382,17 +399,19 @@ a = {
     "R_wanoski",
     "Erickoski",
     "ZeroCantAim",
-
+    "azasincraft"
 }
  
 function bindable.OnInvoke(response)
     game.Players.LocalPlayer:Kick("You have been banned from the game")
 end
 
+function check()
 for i,v in pairs(game.Players:GetChildren()) do
 for _,e in pairs(a) do
-    if v.Name == string.lower(e) then
-    print('Mod Joined')
+    if string.lower(v.Name) == string.lower(e) then
+    print(string.format(str, tostring(v)))
+    game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ModAlert",5).Enabled = true
     StarterGui:SetCore("SendNotification", {
 	Title = ">>MOD ALERT<<",
 	Text = string.format(str, tostring(v)),
@@ -402,11 +421,13 @@ for _,e in pairs(a) do
 end
 end
 end
+end
 
 local function onCharacterAdded(character)
 for _,v in pairs(a) do
     if tostring(string.lower(character.Name)) == string.lower(v) then
-    print('Mod Joined')
+    game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ModAlert",5).Enabled = true
+    print(string.format(str, tostring(v)))
     StarterGui:SetCore("SendNotification", {
 	Title = ">>MOD ALERT<<",
 	Text = string.format(str, tostring(v)),
@@ -420,7 +441,8 @@ end
 local function onCharacterRemoving(character)
 	for _,v in pairs(a) do
     if tostring(string.lower(character.Name)) == string.lower(v) then
-    print('Mod Left')
+    print(string.format(str2, tostring(v)))
+    game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ModAlert",5).Enabled = false
     StarterGui:SetCore("SendNotification", {
 	Title = "Enjoy while it lasts...",
 	Text = string.format(str2, tostring(v)),
@@ -428,11 +450,15 @@ local function onCharacterRemoving(character)
 end
 end
 end
- 
+
 local function onPlayerAdded(player)
 	player.CharacterAdded:Connect(onCharacterAdded)
 	player.CharacterRemoving:Connect(onCharacterRemoving)
 end
+
+Players.PlayerAdded:Connect(onPlayerAdded)
+check()
+
 
 if game:GetService("Workspace"):WaitForChild('Buildings', 0.01) then
 for _,v in pairs(game:GetService("Workspace").Buildings.KFCPlace:GetChildren()) do
