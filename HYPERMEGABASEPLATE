@@ -222,6 +222,27 @@ gw2 = gw:Clone()
 gw2.Parent, gw2.Name = workspace.NIGGERS, "IHATENIGGERS2"
 gw2.Size, gw2.Position, gw2.Rotation = v3(12, 4, 7) ,v3(-117, 3, -329.5), v3(0, 0, 0)
 
+for n, s in pairs(workspace.NIGGERS:GetChildren()) do
+if s:IsA("BasePart") then
+if s.Material == Enum.Material.Plastic then
+s.Material = Enum.Material.SmoothPlastic
+end
+end
+end
+
+local function onCharacterAdded(character)
+    if character.Name == game.Players.LocalPlayer.Name then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-118.296928, 4, -200.59256)
+	wait(0.2)
+	end
+end
+
+local function onPlayerAdded(player)
+	game.Players.LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
+end
+
+onPlayerAdded()
+
 
 
 
