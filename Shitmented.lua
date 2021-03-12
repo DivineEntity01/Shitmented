@@ -293,9 +293,9 @@ game:GetService("ReplicatedStorage")["Healing.Assets"]["Healing.Remote"]:FireSer
 end
 end)
 end
-
+			
 Detect()
-
+			
 for _,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui["HP.UI"].Holder:GetChildren()) do
 for _,V in pairs(v:GetChildren()) do
 if V.Name == "Bar" and V.Parent.Name ~= "Stamina"  then
