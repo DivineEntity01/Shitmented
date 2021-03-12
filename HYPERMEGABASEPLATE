@@ -233,9 +233,9 @@ end
 
 local function onCharacterAdded(character)
     if character.Name == game.Players.LocalPlayer.Name then
+    wait(0.4)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-118.296928, 4, -200.59256)
-	wait(0.2)
-	end
+end
 end
 
 local function onPlayerAdded(player)
