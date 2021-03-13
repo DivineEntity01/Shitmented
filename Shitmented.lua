@@ -453,15 +453,15 @@ for _,e in pairs(a) do
     game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ModAlert",5).Enabled = false
 end
 end
-end
 for _, s in pairs(scumbags) do
-    if string.lower(v.Name) == string.lower(s) then
+    if string.match(v.Name:lower(), s:lower()) then
     StarterGui:SetCore("SendNotification", {
 	Title = "Fucking Snitches",
 	Text = string.format(scu3, tostring(s)),
 	Callback = bindable,
 	Button1 = "Panic...?",
 	Duration = 5})
+end
 end
 end
 getgenv().result = {}
@@ -478,10 +478,10 @@ for _,v in pairs(a) do
 	Callback = bindable,
 	Button1 = "PANIC",
 	Duration = 5})
-end
+end	
 end
 for _, s in pairs(scumbags) do
-    if string.lower(v.Name) == string.lower(s) then
+    if string.lower(character.Name) == string.lower(s) then
     StarterGui:SetCore("SendNotification", {
 	Title = "Fucking Snitches",
 	Text = string.format(scu, tostring(s)),
