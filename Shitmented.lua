@@ -358,6 +358,9 @@ local StarterGui = game:GetService("StarterGui")
 local bindable = Instance.new("BindableFunction")
 local str = "%s joined the game"
 local str2 = "%s left the game"
+local scu = "A scumbag joined(%s)"
+local scu2 = "This scumbag left(%s)"
+
 getgenv().result = {}
 getgenv().resultr = {}
 if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Cook.UI", 10) then
@@ -388,7 +391,17 @@ a = {
     "R_wanoski",
     "Erickoski",
     "ZeroCantAim",
-    "luaspy"
+    "luaspy",
+	"keiner987654321",
+	"kittysangles"
+}
+
+scumbags = {
+	"azasincraft",
+	"KitKatSmoke",
+	"kittysdevils",
+	"a5hieys",
+	"keiner987654321"
 }
  
 function bindable.OnInvoke(response)
@@ -452,6 +465,16 @@ for _,v in pairs(a) do
 	Text = string.format(str, tostring(v)),
 	Callback = bindable,
 	Button1 = "PANIC",
+	Duration = 5})
+end
+end
+for _, s in pairs(scumbags) do
+    if string.lower(v.Name) == string.lower(s) then
+    StarterGui:SetCore("SendNotification", {
+	Title = "Fucking Snitches",
+	Text = string.format(scu, tostring(s)),
+	Callback = bindable,
+	Button1 = "Panic...?",
 	Duration = 5})
 end
 end
