@@ -406,7 +406,7 @@ scumbags = {
 }
  
 function bindable.OnInvoke(response)
-    game.Players.LocalPlayer:Kick("You have been banned from the game")
+    game.Players.LocalPlayer:Kick("PUSSY ASS NIGGA PANICKED")
 end
 
 function finds()
