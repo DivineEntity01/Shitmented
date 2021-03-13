@@ -447,13 +447,12 @@ a = {
     "Erickoski",
     "ZeroCantAim",
     "luaspy",
-	"keiner987654321",
+--	"keiner987654321",
 	"kittysangles"
 }
 
 scumbags = {
-	"azasincraft",
-	"KitKatSmoke",
+	"KitKatSmoke"
 	"kittysdevils",
 	"a5hieys",
 	"keiner987654321"
@@ -507,6 +506,11 @@ for _,e in pairs(a) do
     game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("ModAlert",5).Enabled = false
 end
 end
+end
+getgenv().result = {}
+end
+function check2()
+for i,v in pairs(game.Players:GetChildren()) do
 for _, s in pairs(scumbags) do
     if string.match(v.Name:lower(), s:lower()) then
     StarterGui:SetCore("SendNotification", {
@@ -518,9 +522,7 @@ for _, s in pairs(scumbags) do
 end
 end
 end
-getgenv().result = {}
 end
-
 
 local function onCharacterAdded(character)
 for _,v in pairs(a) do
@@ -556,6 +558,7 @@ end
 
 Players.PlayerAdded:Connect(onPlayerAdded)
 finds()
+check2()
 checkrepeat()
 
 
