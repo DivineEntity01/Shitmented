@@ -360,6 +360,7 @@ local str = "%s joined the game"
 local str2 = "%s left the game"
 local scu = "A scumbag joined(%s)"
 local scu2 = "This scumbag left(%s)"
+local scu3 = "A fucking scumbag(%s) is in"
 
 getgenv().result = {}
 getgenv().resultr = {}
@@ -453,8 +454,19 @@ for _,e in pairs(a) do
 end
 end
 end
+for _, s in pairs(scumbags) do
+    if string.lower(v.Name) == string.lower(s) then
+    StarterGui:SetCore("SendNotification", {
+	Title = "Fucking Snitches",
+	Text = string.format(scu3, tostring(s)),
+	Callback = bindable,
+	Button1 = "Panic...?",
+	Duration = 5})
+end
+end
 getgenv().result = {}
 end
+
 
 local function onCharacterAdded(character)
 for _,v in pairs(a) do
