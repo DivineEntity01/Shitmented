@@ -352,6 +352,60 @@ end)
 --[[
         Custom Scripts
 ]]
+if game:GetService("Workspace"):WaitForChild('Buildings', 0.01) then
+for _,v in pairs(game:GetService("Workspace").Buildings.KFCPlace:GetChildren()) do
+    if v:IsA("BasePart") then
+    if v.Size == Vector3.new(3.6, 20.5, 53.3) then
+        v:Destroy()
+    end
+    end
+end
+end
+game:GetService("Workspace").DecorationsMouseFilter.SoundHandler.Chken.Sounds.Sound.Playing = false
+local PanicBindBox = game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["Panic Bind"].Side.Box
+PanicBindBox.Text = string.sub(Setting.PanicBind, 14)
+PanicBindBox.Focused:Connect(function()
+    game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["Panic Bind"].Text = " Press a key"
+	PanicBindBox.TextEditable = false
+	local Enabled = true
+	wait(0.03)
+    UIS.InputBegan:Connect(function(Input , GPE)
+    if Enabled == false then
+        return
+    end
+    Setting.PanicBind = tostring(Input.KeyCode)
+    SaveSettings()
+    PanicBindBox.Text = string.sub(tostring(Input.KeyCode), 14)
+    wait()
+    Enabled = false
+    PanicBindBox:ReleaseFocus()
+    end)
+end)
+PanicBindBox.FocusLost:Connect(function()
+    game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["Panic Bind"].Text = " Panic Bind"
+end)
+local GuiToggleBox = game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["GUI Bind"].Side.Box
+GuiToggleBox.Text = string.sub(Setting.HideBind, 14)
+GuiToggleBox.Focused:Connect(function()
+    game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["GUI Bind"].Text = " Press a key"
+	GuiToggleBox.TextEditable = false
+	local Enabled = true
+	wait(0.03)
+    UIS.InputBegan:Connect(function(Input , GPE)
+    if Enabled == false then
+        return
+    end
+    Setting.HideBind = tostring(Input.KeyCode)
+    SaveSettings()
+    GuiToggleBox.Text = string.sub(tostring(Input.KeyCode), 14)
+    wait()
+    Enabled = false
+    GuiToggleBox:ReleaseFocus()
+    end)
+end)
+GuiToggleBox.FocusLost:Connect(function()
+    game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["GUI Bind"].Text = " GUI Bind"
+end)
 
 local Players = game:GetService("Players")
 local StarterGui = game:GetService("StarterGui")
@@ -505,57 +559,3 @@ finds()
 checkrepeat()
 
 
-if game:GetService("Workspace"):WaitForChild('Buildings', 0.01) then
-for _,v in pairs(game:GetService("Workspace").Buildings.KFCPlace:GetChildren()) do
-    if v:IsA("BasePart") then
-    if v.Size == Vector3.new(3.6, 20.5, 53.3) then
-        v:Destroy()
-    end
-    end
-end
-end
-game:GetService("Workspace").DecorationsMouseFilter.SoundHandler.Chken.Sounds.Sound.Playing = false
-local PanicBindBox = game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["Panic Bind"].Side.Box
-PanicBindBox.Text = string.sub(Setting.PanicBind, 14)
-PanicBindBox.Focused:Connect(function()
-    game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["Panic Bind"].Text = " Press a key"
-	PanicBindBox.TextEditable = false
-	local Enabled = true
-	wait(0.03)
-    UIS.InputBegan:Connect(function(Input , GPE)
-    if Enabled == false then
-        return
-    end
-    Setting.PanicBind = tostring(Input.KeyCode)
-    SaveSettings()
-    PanicBindBox.Text = string.sub(tostring(Input.KeyCode), 14)
-    wait()
-    Enabled = false
-    PanicBindBox:ReleaseFocus()
-    end)
-end)
-PanicBindBox.FocusLost:Connect(function()
-    game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["Panic Bind"].Text = " Panic Bind"
-end)
-local GuiToggleBox = game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["GUI Bind"].Side.Box
-GuiToggleBox.Text = string.sub(Setting.HideBind, 14)
-GuiToggleBox.Focused:Connect(function()
-    game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["GUI Bind"].Text = " Press a key"
-	GuiToggleBox.TextEditable = false
-	local Enabled = true
-	wait(0.03)
-    UIS.InputBegan:Connect(function(Input , GPE)
-    if Enabled == false then
-        return
-    end
-    Setting.HideBind = tostring(Input.KeyCode)
-    SaveSettings()
-    GuiToggleBox.Text = string.sub(tostring(Input.KeyCode), 14)
-    wait()
-    Enabled = false
-    GuiToggleBox:ReleaseFocus()
-    end)
-end)
-GuiToggleBox.FocusLost:Connect(function()
-    game:GetService("CoreGui")["Shitmented"].Top.Container["Settings"].TabContainer["GUI Bind"].Text = " GUI Bind"
-end)
