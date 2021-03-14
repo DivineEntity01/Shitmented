@@ -1,13 +1,13 @@
-if game:GetService("CoreGui"):WaitForChild("Shitmented", 1) then
+if game:GetService("CoreGui"):WaitForChild("Shitmented", 0.1) then
 game:GetService("CoreGui")["Shitmented"]:Destroy()
 end
-if game.workspace:WaitForChild('KfcAndWatermelon', 1) then
+if game.workspace:WaitForChild('KfcAndWatermelon', 0.1) then
 game.workspace:WaitForChild('KfcAndWatermelon', 1):Destroy()
 end
 getgenv().KillAll = false
 
 local HttpService = game:GetService("HttpService");
-local SaveFileName = "Shitmented.lua"
+local SaveFileName = "Shitmented.pp"
 local Configuration = {HideBind = 'Enum.KeyCode.RightAlt', PanicBind = ''}
 if not pcall(function()
     readfile(SaveFileName)
