@@ -1,3 +1,4 @@
+print('Line1')
 if game:GetService("CoreGui"):WaitForChild("Shitmented", 0.1) then
 game:GetService("CoreGui")["Shitmented"]:Destroy()
 end
