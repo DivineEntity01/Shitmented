@@ -1,4 +1,4 @@
-getgenv().Enabled = true
+--getgenv().Enabled = true
 getgenv().Selling = false
 local count = 0
 
